@@ -1,19 +1,12 @@
 import streamlit as st
-
 import numpy as np
 import pandas as pd
 
 st.header("My first Streamlit App")
-st.title("This is a title")
 
-st.write("""
-# This is a first-level heading
-## This is a second-level heading
-""")
+map_data = pd.DataFrame(
+    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+    columns=['lat', 'lon'])
 
-st.write(pd.DataFrame({
-    'Intplan': ['yes', 'yes', 'yes', 'no'],
-    'Churn Status': [0, 0, 0, 1]
-}))
-
+st.map(map_data)
 
